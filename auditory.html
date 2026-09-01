@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слуховая память</title>
+    <link rel="stylesheet" href="style.css?v=20" />
+    <link rel="stylesheet" href="figma-theme.css?v=20" />
+    <script src="ui-sounds.js?v=20" defer></script>
+    <script src="audio/audio-config.js?v=20" defer></script>
+    <script src="auditory.js?v=20" defer></script>
+  </head>
+  <body class="figma-page figma-page--game figma-page--auditory" data-screen="home">
+    <main class="app">
+      <header class="app__header app__header--with-link">
+        <h1>Слуховая память</h1>
+        <a class="round-control round-control--home" href="index.html?v=20" aria-label="Домой" title="Домой"></a>
+        <button class="round-control round-control--sound" type="button" data-sound-toggle aria-label="Выключить звук" title="Выключить звук"></button>
+      </header>
+
+      <section class="screen game-home-screen" id="game-home-screen">
+        <h2>Слуховая<br />память</h2>
+        <div class="game-home-actions">
+          <button class="figma-choice" id="quick-start-button" type="button">Играть</button>
+          <button class="figma-choice" id="open-settings-button" type="button">Настройки</button>
+          <button class="figma-choice" id="open-modes-button" type="button">Режимы</button>
+        </div>
+      </section>
+
+      <section class="screen" id="settings-screen" hidden>
+        <h2>Настройки</h2>
+        <p>Запомни 10 слов и введи их в том же порядке.</p>
+
+        <form id="settings-form">
+          <fieldset>
+            <legend>Время показа</legend>
+            <label><input type="radio" name="duration" value="30" checked />30 секунд</label>
+            <label><input type="radio" name="duration" value="20" />20 секунд</label>
+            <label><input type="radio" name="duration" value="15" />15 секунд</label>
+          </fieldset>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="voice-setting" />
+            Включить озвучку
+          </label>
+
+          <button class="button button--main" type="submit">Старт</button>
+        </form>
+      </section>
+
+      <section class="screen" id="memory-screen" hidden>
+        <div class="screen__top">
+          <h2>Запомни слова</h2>
+          <p class="timer">Осталось: <strong id="timer-value">30</strong> сек.</p>
+        </div>
+        <ol class="word-list" id="memory-words"></ol>
+      </section>
+
+      <section class="screen" id="answer-screen" hidden>
+        <h2>Введи слова по порядку</h2>
+        <p>Для каждого слова есть отдельное место.</p>
+
+        <form id="answer-form">
+          <span class="form-label">Ответ</span>
+          <div class="word-answer-grid">
+            <label class="word-answer-cell"><span>1.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 1" /></label>
+            <label class="word-answer-cell"><span>2.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 2" /></label>
+            <label class="word-answer-cell"><span>3.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 3" /></label>
+            <label class="word-answer-cell"><span>4.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 4" /></label>
+            <label class="word-answer-cell"><span>5.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 5" /></label>
+            <label class="word-answer-cell"><span>6.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 6" /></label>
+            <label class="word-answer-cell"><span>7.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 7" /></label>
+            <label class="word-answer-cell"><span>8.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 8" /></label>
+            <label class="word-answer-cell"><span>9.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 9" /></label>
+            <label class="word-answer-cell"><span>10.</span><input class="word-answer-input" type="text" autocomplete="off" aria-label="Слово 10" /></label>
+          </div>
+          <p class="error" id="answer-error" hidden></p>
+          <button class="button button--main" type="submit">ОК</button>
+        </form>
+      </section>
+
+      <section class="screen" id="result-screen" hidden>
+        <h2>Результат</h2>
+        <p class="score">Правильных слов по порядку до первой ошибки: <strong><span id="score-value">0</span> из 10</strong></p>
+
+        <div class="result-row">
+          <h3>Правильный ответ</h3>
+          <ol class="word-list word-list--result" id="correct-words"></ol>
+        </div>
+        <div class="result-row">
+          <h3>Твой ответ</h3>
+          <ol class="word-list word-list--result" id="user-words"></ol>
+        </div>
+
+        <p class="result-note">Все позиции проверяются отдельно. Итоговый балл считается до первой ошибки.</p>
+        <div class="actions">
+          <button class="button button--main" id="restart-button" type="button">Играть ещё</button>
+          <button class="button" id="settings-button" type="button">Изменить настройки</button>
+          <a class="button button--link" href="index.html?v=20">В меню</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

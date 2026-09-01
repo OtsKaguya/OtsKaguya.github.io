@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Флаги</title>
+    <link rel="stylesheet" href="style.css?v=20" />
+    <link rel="stylesheet" href="figma-theme.css?v=20" />
+    <script src="ui-sounds.js?v=20" defer></script>
+    <script src="audio/audio-config.js?v=20" defer></script>
+    <script src="flags.js?v=20" defer></script>
+  </head>
+  <body class="figma-page figma-page--game figma-page--flags" data-screen="home">
+    <main class="app">
+      <header class="app__header app__header--with-link">
+        <h1>Флаги</h1>
+        <a class="round-control round-control--home" href="index.html?v=20" aria-label="Домой" title="Домой"></a>
+        <button class="round-control round-control--sound" type="button" data-sound-toggle aria-label="Выключить звук" title="Выключить звук"></button>
+      </header>
+
+      <section class="screen game-home-screen" id="game-home-screen">
+        <h2>Страны</h2>
+        <div class="game-home-actions">
+          <button class="figma-choice" id="quick-start-button" type="button">Играть</button>
+          <button class="figma-choice" id="open-settings-button" type="button">Настройки</button>
+          <button class="figma-choice" id="open-modes-button" type="button">Режимы</button>
+        </div>
+      </section>
+
+      <section class="screen" id="settings-screen" hidden>
+        <h2>Настройки</h2>
+        <p>Запомни флаги и названия стран.</p>
+
+        <form id="settings-form">
+          <fieldset>
+            <legend>Уровень</legend>
+            <label><input type="radio" name="level" value="1" checked />1 — базовые и популярные страны</label>
+            <label><input type="radio" name="level" value="2" />2 — сложные и менее популярные страны</label>
+          </fieldset>
+
+          <div class="settings-control">
+            <label for="flag-count">Количество флагов</label>
+            <select id="flag-count" name="flag-count">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="voice-setting" />
+            Включить озвучку
+          </label>
+
+          <p>Каждый флаг показывается автоматически в течение 1 секунды.</p>
+          <button class="button button--main" type="submit">Старт</button>
+        </form>
+      </section>
+
+      <section class="screen" id="memory-screen" hidden>
+        <div class="screen__top">
+          <h2>Запомни страны</h2>
+          <p><strong id="study-progress">1 из 5</strong></p>
+        </div>
+        <div class="flag-card" id="study-flag"></div>
+      </section>
+
+      <section class="screen" id="answer-screen" hidden>
+        <div class="screen__top">
+          <h2>Назови страну</h2>
+          <p><strong id="quiz-progress">1 из 5</strong></p>
+        </div>
+
+        <div class="flag-card" id="quiz-flag"></div>
+
+        <form id="answer-form">
+          <label for="answer-input">Название страны</label>
+          <input id="answer-input" type="text" autocomplete="off" />
+          <p class="flag-feedback" id="flag-feedback" hidden></p>
+          <button class="button button--main" id="check-answer-button" type="submit">ОК</button>
+          <button class="button" id="next-flag-button" type="button" hidden>Следующий флаг</button>
+        </form>
+      </section>
+
+      <section class="screen" id="result-screen" hidden>
+        <h2>Результат</h2>
+        <p class="score">Правильных ответов: <strong><span id="score-value">0</span> из <span id="score-total">5</span></strong></p>
+
+        <div class="flag-results" id="flag-results"></div>
+
+        <div class="actions">
+          <button class="button button--main" id="restart-button" type="button">Играть ещё</button>
+          <button class="button" id="settings-button" type="button">Изменить настройки</button>
+          <a class="button button--link" href="index.html?v=20">В меню</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

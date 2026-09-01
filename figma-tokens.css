@@ -1,0 +1,37 @@
+:root {
+  /* Colors */
+  --background: #8bdcf4;
+  --surface: #ffdec0;
+  --surface-muted: #ffecd8;
+  --surface-control: #ffdec0;
+  --text: #5c3c2a;
+  --muted: #6f533d;
+  --border: #9d7c61;
+  --main: #5c3c2a;
+  --on-main: #ffecd8;
+  --success: #176b3a;
+  --success-background: #eaf8ef;
+  --success-border: #2e9b59;
+  --error: #c8324f;
+  --error-background: #fff0f3;
+  --dot-red: #d93434;
+  --dot-blue: #2768d8;
+  --dot-green: #32934b;
+  --dot-yellow: #e5bd23;
+
+  /* Typography */
+  --font-family: "TOYZ", "Arial Rounded MT Bold", Arial, sans-serif;
+  --font-size-title: 64px;
+  --font-size-control: 24px;
+
+  /* Radius */
+  --radius-surface: 0px;
+  --radius-control: 42px;
+  --radius-card: 18px;
+  --radius-round: 999px;
+
+  /* Main layout */
+  --content-width: 900px;
+  --form-width: 560px;
+  --board-width: 420px;
+}

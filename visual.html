@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Зрительная память</title>
+    <link rel="stylesheet" href="style.css?v=20" />
+    <link rel="stylesheet" href="figma-theme.css?v=20" />
+    <script src="ui-sounds.js?v=20" defer></script>
+    <script src="app.js?v=20" defer></script>
+  </head>
+  <body class="figma-page figma-page--game figma-page--visual" data-screen="home">
+    <main class="app">
+      <header class="app__header app__header--with-link">
+        <h1>Зрительная память</h1>
+        <a class="round-control round-control--home" href="index.html?v=20" aria-label="Домой" title="Домой"></a>
+        <button class="round-control round-control--sound" type="button" data-sound-toggle aria-label="Выключить звук" title="Выключить звук"></button>
+      </header>
+
+      <section class="screen game-home-screen" id="game-home-screen">
+        <h2>Зрительная<br />память</h2>
+        <div class="game-home-actions">
+          <button class="figma-choice" id="quick-start-button" type="button">Играть</button>
+          <button class="figma-choice" id="open-settings-button" type="button">Настройки</button>
+          <button class="figma-choice" id="open-modes-button" type="button">Режимы</button>
+        </div>
+      </section>
+
+      <section class="screen" id="settings-screen" hidden>
+        <h2>Настройки</h2>
+        <p>Запомни 10 чисел и введи их в том же порядке.</p>
+
+        <form id="settings-form">
+          <fieldset>
+            <legend>Уровень</legend>
+            <label><input type="radio" name="level" value="1" checked />1 — однозначные числа</label>
+            <label><input type="radio" name="level" value="2" />2 — однозначные и двузначные числа</label>
+            <label><input type="radio" name="level" value="3" />3 — двузначные числа</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Время показа</legend>
+            <label><input type="radio" name="duration" value="15" checked />15 секунд</label>
+            <label><input type="radio" name="duration" value="20" />20 секунд</label>
+            <label><input type="radio" name="duration" value="30" />30 секунд</label>
+          </fieldset>
+
+          <button class="button button--main" type="submit">Старт</button>
+        </form>
+      </section>
+
+      <section class="screen" id="memory-screen" hidden>
+        <div class="screen__top">
+          <h2><span>Запомни</span><span>Числа</span></h2>
+          <p class="timer"><strong id="timer-value">15</strong>&nbsp;сек</p>
+        </div>
+        <ol class="numbers" id="memory-numbers"></ol>
+      </section>
+
+      <section class="screen" id="answer-screen" hidden>
+        <h2>Какие были числа?</h2>
+        <p>Можно вводить через пробелы, запятые или одной сплошной строкой.</p>
+
+        <form id="answer-form">
+          <label for="answer-input">Ответ</label>
+          <input id="answer-input" type="text" inputmode="numeric" autocomplete="off" placeholder="Например: 5 8 9 7 или 5897" />
+          <p class="error" id="answer-error" hidden></p>
+
+          <div class="keypad" aria-label="Экранная клавиатура">
+            <button type="button" data-digit="1">1</button>
+            <button type="button" data-digit="2">2</button>
+            <button type="button" data-digit="3">3</button>
+            <button type="button" data-digit="4">4</button>
+            <button type="button" data-digit="5">5</button>
+            <button type="button" data-digit="6">6</button>
+            <button type="button" data-digit="7">7</button>
+            <button type="button" data-digit="8">8</button>
+            <button type="button" data-digit="9">9</button>
+            <button type="button" data-action="separator">Пробел</button>
+            <button type="button" data-digit="0">0</button>
+            <button type="button" data-action="backspace" aria-label="Удалить">⌫</button>
+          </div>
+
+          <button class="button button--main" type="submit">ОК</button>
+        </form>
+      </section>
+
+      <section class="screen" id="result-screen" hidden>
+        <h2>Результат</h2>
+        <p class="score">Правильных чисел по порядку до первой ошибки: <strong><span id="score-value">0</span> из 10</strong></p>
+
+        <div class="result-row">
+          <h3>Правильный ответ</h3>
+          <ol class="numbers numbers--result" id="correct-numbers"></ol>
+        </div>
+        <div class="result-row">
+          <h3>Твой ответ</h3>
+          <ol class="numbers numbers--result" id="user-numbers"></ol>
+        </div>
+
+        <p class="result-note" id="result-note"></p>
+        <div class="actions">
+          <button class="button button--main" id="restart-button" type="button">Играть ещё</button>
+          <button class="button" id="settings-button" type="button">Изменить настройки</button>
+          <a class="button button--link" href="index.html?v=20">В меню</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

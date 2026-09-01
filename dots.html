@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пятнашки</title>
+    <link rel="stylesheet" href="style.css?v=20" />
+    <link rel="stylesheet" href="figma-theme.css?v=20" />
+    <script src="ui-sounds.js?v=20" defer></script>
+    <script src="dots.js?v=20" defer></script>
+  </head>
+  <body class="figma-page figma-page--game figma-page--dots" data-screen="home">
+    <main class="app">
+      <header class="app__header app__header--with-link">
+        <h1>Пятнашки</h1>
+        <a class="round-control round-control--home" href="index.html?v=20" aria-label="Домой" title="Домой"></a>
+        <button class="round-control round-control--sound" type="button" data-sound-toggle aria-label="Выключить звук" title="Выключить звук"></button>
+      </header>
+
+      <section class="screen game-home-screen" id="game-home-screen">
+        <h2>Пятнашки</h2>
+        <div class="game-home-actions">
+          <button class="figma-choice" id="quick-start-button" type="button">Играть</button>
+          <button class="figma-choice" id="open-settings-button" type="button">Настройки</button>
+          <button class="figma-choice" id="open-modes-button" type="button">Режимы</button>
+        </div>
+      </section>
+
+      <section class="screen" id="settings-screen" hidden>
+        <h2>Настроим игру</h2>
+        <p>Запомни расположение и цвет точек, затем повтори карточку.</p>
+
+        <form id="settings-form">
+          <fieldset class="settings-group settings-group--level">
+            <legend>Какое поле?</legend>
+            <label><input type="radio" name="level" value="1" checked />Легко — 3 × 3</label>
+            <label><input type="radio" name="level" value="2" />Средне — 4 × 4</label>
+            <label><input type="radio" name="level" value="3" />Сложно — 5 × 5</label>
+          </fieldset>
+
+          <fieldset class="settings-group settings-group--duration">
+            <legend>Сколько секунд?</legend>
+            <label><input type="radio" name="duration" value="0.5" checked />0,5 сек</label>
+            <label><input type="radio" name="duration" value="1" />1 сек</label>
+            <label><input type="radio" name="duration" value="1.5" />1,5 сек</label>
+            <label><input type="radio" name="duration" value="2" />2 сек</label>
+            <label><input type="radio" name="duration" value="3" />3 сек</label>
+          </fieldset>
+
+          <button class="button button--main" type="submit">Поехали!</button>
+        </form>
+      </section>
+
+      <section class="screen" id="memory-screen" hidden>
+        <h2>Запомни расположение</h2>
+        <div class="dot-board" id="memory-board"></div>
+        <p class="timer"><strong id="dots-timer-value">0,5</strong> сек.</p>
+      </section>
+
+      <section class="screen" id="answer-screen" hidden>
+        <h2>Повтори расположение точек</h2>
+        <p>Выбери цвет и нажми на нужную клетку.</p>
+        <div class="color-palette" id="color-palette"></div>
+        <div class="dot-board" id="answer-board"></div>
+        <button class="button button--main" id="check-button" type="button">ОК</button>
+      </section>
+
+      <section class="screen" id="result-screen" hidden>
+        <h2>Результат</h2>
+        <p class="score" id="result-title"></p>
+
+        <div class="boards-result">
+          <div>
+            <h3>Правильная карточка</h3>
+            <div class="dot-board" id="correct-board"></div>
+          </div>
+          <div>
+            <h3>Твоя карточка</h3>
+            <div class="dot-board" id="user-board"></div>
+          </div>
+        </div>
+
+        <p class="result-note">Ошибочные или незаполненные клетки выделены красным.</p>
+        <div class="actions">
+          <button class="button button--main" id="restart-button" type="button">Играть ещё</button>
+          <button class="button" id="settings-button" type="button">Изменить настройки</button>
+          <a class="button button--link" href="index.html?v=20">В меню</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
