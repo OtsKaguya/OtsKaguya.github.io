@@ -1,5 +1,4 @@
 :root {
-  /* Colors */
   --background: #8bdcf4;
   --surface: #ffdec0;
   --surface-muted: #ffecd8;
@@ -19,18 +18,15 @@
   --dot-green: #32934b;
   --dot-yellow: #e5bd23;
 
-  /* Typography */
   --font-family: "TOYZ", "Arial Rounded MT Bold", Arial, sans-serif;
   --font-size-title: 64px;
   --font-size-control: 24px;
 
-  /* Radius */
   --radius-surface: 0px;
   --radius-control: 42px;
   --radius-card: 18px;
   --radius-round: 999px;
 
-  /* Main layout */
   --content-width: 900px;
   --form-width: 560px;
   --board-width: 420px;
