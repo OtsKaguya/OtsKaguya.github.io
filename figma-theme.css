@@ -213,15 +213,97 @@
   width: 345px;
   min-height: 141px;
   display: grid;
+  grid-template-columns: 64px 1fr;
   grid-template-rows: auto auto;
-  place-items: center;
+  align-items: center;
   align-content: center;
-  gap: 6px;
-  padding: 14px 24px;
+  gap: 5px 14px;
+  padding: 14px 22px;
   border-radius: 18px;
-  text-align: center;
+  text-align: left;
   text-transform: none;
   cursor: pointer;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.8) 0 18px, transparent 19px),
+    radial-gradient(circle at 88% 82%, rgba(255, 255, 255, 0.42) 0 32px, transparent 33px),
+    linear-gradient(135deg, #ffe3bf, #ffd5b8);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35), 0 7px 12px rgba(92, 60, 42, 0.28);
+}
+
+.figma-page--menu .game-menu__icon {
+  width: 60px;
+  height: 60px;
+  grid-row: 1 / 3;
+  object-fit: contain;
+  transform-origin: center;
+}
+
+.figma-page--menu .game-menu a:hover .game-menu__icon,
+.figma-page--menu .game-menu a:focus-visible .game-menu__icon {
+  animation: menu-icon-bounce 0.65s ease both;
+}
+
+@keyframes menu-icon-bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0) scale(1);
+  }
+
+  30% {
+    transform: translateY(-7px) rotate(-7deg) scale(1.08);
+  }
+
+  65% {
+    transform: translateY(-2px) rotate(6deg) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .figma-page--menu .game-menu a:hover .game-menu__icon,
+  .figma-page--menu .game-menu a:focus-visible .game-menu__icon {
+    animation: none;
+  }
+}
+
+.figma-page--menu .game-menu strong,
+.figma-page--menu .game-menu span {
+  grid-column: 2;
+}
+
+.figma-page--menu .game-menu strong {
+  align-self: end;
+}
+
+.figma-page--menu .game-menu span {
+  align-self: start;
+}
+
+.figma-page--menu .game-menu a:nth-child(2) {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.8) 0 18px, transparent 19px),
+    radial-gradient(circle at 88% 82%, rgba(255, 255, 255, 0.42) 0 32px, transparent 33px),
+    linear-gradient(135deg, #e4ddff, #cfdcff);
+}
+
+.figma-page--menu .game-menu a:nth-child(3) {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.8) 0 18px, transparent 19px),
+    radial-gradient(circle at 88% 82%, rgba(255, 255, 255, 0.42) 0 32px, transparent 33px),
+    linear-gradient(135deg, #dff5cb, #bdeacb);
+}
+
+.figma-page--menu .game-menu a:nth-child(4) {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.8) 0 18px, transparent 19px),
+    radial-gradient(circle at 88% 82%, rgba(255, 255, 255, 0.42) 0 32px, transparent 33px),
+    linear-gradient(135deg, #d9f3ff, #c9e4ff);
+}
+
+.figma-page--menu .game-menu a:nth-child(5),
+.figma-page--menu .game-menu a:nth-child(6) {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.65) 0 18px, transparent 19px),
+    radial-gradient(circle at 88% 82%, rgba(255, 255, 255, 0.34) 0 32px, transparent 33px),
+    linear-gradient(135deg, #f4e8d5, #e8dccd);
 }
 
 .figma-page--menu .game-menu strong {
